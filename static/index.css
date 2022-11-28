@@ -494,6 +494,7 @@ textarea { resize: none; }
     html,body{
 		overflow-x:hidden !important;
 	}
+	
 	.intro-wrapper{
 		grid-template-columns: 1fr;
 		grid-template-areas: 
@@ -551,6 +552,9 @@ textarea { resize: none; }
 	
 }
 @media screen and (max-width: 600px){
+	.goTop{
+		display: none !important;
+		}
 	.typewriter{
 		font-size: 30px;
 		/* white-space: initial; */
