@@ -90,7 +90,7 @@ let theme = localStorage.getItem('theme')
 
 
 if(theme == null){
-	setTheme('light')
+	setTheme('blue')
 }else{
 	setTheme(theme)
 }
@@ -143,22 +143,53 @@ database.once('value', function(snapshot){
     }
 });
 
-const navSlide=()=>{
-    const toggle=document.querySelector('.Toggle');
-    const nav=document.querySelector('.nav__list');
-    const navLinks=document.querySelectorAll('.nav__item');
-    toggle.addEventListener('click',()=>{
-        nav.classList.toggle('nav-active');
-        navLinks.forEach((link,index)=>{
-            if(link.style.animation){
-                link.style.animation='';
-            }else{
-                link.style.animation=`navLinkFade 0.5s ease forwards ${index/7+0.3}s`
-            }
-        });
-        toggle.classList.toggle('toggle');
-    });
-}
+// const navSlide=()=>{
+//     const toggle=document.querySelector('.Toggle');
+//     const nav=document.querySelector('.nav__list');
+//     const navLinks=document.querySelectorAll('.nav__item');
+//     toggle.addEventListener('click',()=>{
+//         nav.classList.toggle('nav-active');
+//         navLinks.forEach((link,index)=>{
+//             if(link.style.animation){
+//                 link.style.animation='';
+//             }else{
+//                 link.style.animation=`navLinkFade 0.5s ease forwards ${index/7+0.3}s`
+//             }
+//         });
+//         toggle.classList.toggle('toggle');
+//     });
+// }
+const navSlide = () => {
+  const toggle = document.querySelector('.Toggle');
+  const nav = document.querySelector('.nav__list');
+  const navLinks = document.querySelectorAll('.nav__item');
+  
+  toggle.addEventListener('click', () => {
+      nav.classList.toggle('nav-active');
+      
+      navLinks.forEach((link, index) => {
+          if (link.style.animation) {
+              link.style.animation = '';
+          } else {
+              link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+          }
+      });
+      
+      toggle.classList.toggle('toggle');
+  });
+
+  // Add click event to nav items to set active class
+  navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          // Remove active class from all nav items
+          navLinks.forEach(item => item.classList.remove('active'));
+          
+          // Add active class to the clicked nav item
+          link.classList.add('active');
+      });
+  });
+};
+
 navSlide();
 
 

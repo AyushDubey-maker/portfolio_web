@@ -84,9 +84,37 @@ textarea { resize: none; }
 	margin-left: auto;
 
 }
+
+.nav__item a{
+    position: relative;
+    padding: 0.5rem 1rem; /* Adjust padding for better spacing */
+
+}
+
+.nav__item.active a{
+    color: white; /* Active text color */
+}
+
+.nav__item a::after {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Position at the bottom of the nav item */
+    left: 50%; /* Start at the center */
+    transform: translateX(-50%) scaleX(0); /* Shrink to 0 for animation */
+    width: 70%; /* Width of the underline */
+    height: 2px; /* Thickness of the underline */
+    background-color: #007bff; /* Underline color */
+    transition: transform 0.3s ease; /* Smooth scaling effect */
+    transform-origin: center;
+}
+
+.nav__item.active a::after {
+    transform: translateX(-50%) scaleX(1); /* Expand underline when active */
+}
+
 .nav__item:hover{
-	background-color:var(--mainColor);
-	
+	/* background-color:var(--mainColor);
+	 */
 	cursor: pointer;
 }
 .Toggle{
@@ -620,3 +648,119 @@ textarea { resize: none; }
 	  opacity: 1;
   }
  
+
+
+  /* Timeline Container */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+/* Timeline Item */
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+/* Line connecting timeline items */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #ccc;
+    z-index: -1;
+}
+
+/* Timeline Content */
+.timeline-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    position: relative;
+}
+
+/* Company Logo */
+.company-logo {
+    width: 70px;
+    height: 50px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+.company_name{
+	color: #17a2b8;
+}
+
+/* Company Name */
+.timeline-content h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+/* Role */
+.role {
+    font-size: 1rem;
+    color: #007bff;
+    margin: 5px 0;
+}
+
+/* Duration */
+.duration {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 5px 0;
+}
+
+/* Responsive Styling */
+@media screen and (max-width: 768px) {
+    .timeline {
+        padding: 20px 10px;
+    }
+
+    .timeline-item {
+        flex-direction: column;
+    }
+
+    .timeline-content {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .timeline-item::before {
+        left: 50%;
+        top: 50%;
+        height: 2px;
+        width: 50%;
+        margin-top: 10px;
+    }
+}
+
+
+@media screen and (max-width: 768px) {
+	.about-wrapper {
+		padding-top: 0;
+		gap: 50px;
+	}
+.icons ul{
+	padding-left: 25%;
+}
+.find_me_text{
+	text-align: center;
+}
+}
