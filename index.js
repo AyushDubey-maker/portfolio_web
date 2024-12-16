@@ -85,9 +85,9 @@ function saveMessage(name,subject,email,message){
    
 }
 
-let theme = localStorage.getItem('theme')
+// let theme = localStorage.getItem('theme')
 
-
+let theme = null
 
 if(theme == null){
 	setTheme('blue')
@@ -121,7 +121,7 @@ function setTheme(mode){
 		document.getElementById('theme-style').href = './static/purple.css'
 	}
 
-	localStorage.setItem('theme', mode)
+//	localStorage.setItem('theme', mode)
 }
 
 var database = firebase.database().ref().child('messages');

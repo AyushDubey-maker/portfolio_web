@@ -404,16 +404,19 @@ textarea { resize: none; }
 }
 
 
-#skills{
+#skills_exp{
 	display: flex;
 	justify-content: space-evenly;
 	background-color: var(--previewShadow);
 }
-.social-links{
+/* .social-links{
 	display: grid;
 	align-content: center;
 	text-align: center;
-}
+} */
+ .work-experience{
+	text-align: center;
+ }
 
 #social_img{
 	width: 100%;
@@ -446,7 +449,7 @@ textarea { resize: none; }
 	display: block;
 	width: 100%;
 	height:200px;
-	object-fit: cover;
+	object-fit: contain;
 }
 
 .post-preview{
