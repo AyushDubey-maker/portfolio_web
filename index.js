@@ -32,7 +32,7 @@ document.getElementById('contact-form').addEventListener('submit',submitForm);
           //saveMessage(name,subject,email,message);
           sendEmail(email,subject,message,name)
           sendEmailClient(email,name)
-          alert('Message Sent..Thanks for your Feedback')
+          alert('Thanks! Your message has been sent.')
           document.querySelector('.contact-form').reset()
       }
       
